@@ -6,7 +6,6 @@ import datetime
 today = datetime.datetime.now()
 print(today)
 
-
 def main_function():
     while True:
         with open('data.json', 'r') as f:
@@ -47,24 +46,24 @@ def main_function():
                 for option in list_of_options:
                     print(option)
                 thing_to_sort = input("What do you want to sort by? ")
-                if thing_to_sort.title() in list_of_options:
-                    if thing_to_sort.title() == "Assignment Name":
+                match thing_to_sort.title():
+                    case "Assignment Name":
                         for assignment in assignment_dicts:
                             print(assignment_dicts[assignment])
-                    elif thing_to_sort.title() == "Priority":
+                    case "Priority":
                         for priority_ in priority_dicts:
                             print(priority_dicts[priority_])
-                    elif thing_to_sort.title() == "Subject":
+                    case "Subject":
                         for subject in subjects_dicts:
                             print(subjects_dicts[subject])
-                    elif thing_to_sort.title() == "Time":
+                    case "Time":
                         for time in time_dicts:
                             print(time_dicts[time])
-                    elif thing_to_sort.title() == "Date Due":
+                    case "Date Due":
                         for date in date_dicts:
                             print(date_dicts[date])
-                else:
-                    sorting()
+                    case default:
+                        sorting()
             sorting()
 
 if __name__ == "__main__":
